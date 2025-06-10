@@ -4,7 +4,7 @@
 ![Screenshot do projeto](/assets/Captura%20de%20tela%202025-05-26%20200847.png)
 
 ## Repositório Front-End
-[https://github.com/Akunozz/Front-t3-web](https://github.com/Akunozz/Front-t3-web)
+https://github.com/Akunozz/front-project4-2025a-pedro-breno
 
 ## Acesso ao Projeto
 [https://roadmap-eta-one.vercel.app/](https://roadmap-eta-one.vercel.app/)
