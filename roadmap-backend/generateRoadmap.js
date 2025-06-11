@@ -12,20 +12,32 @@ async function generateRoadmap(prompt) {
         messages: [
           {
             role: "user",
-            content: `Por favor, crie um roadmap detalhado para: "${prompt}".
-Retorne a resposta no formato JSON conforme o modelo abaixo, sem texto extra, apenas o JSON:
+            content: `
+Você é uma IA que retorna apenas JSON válido. Não explique, não use markdown, apenas retorne um objeto JSON.
+
+Crie um roadmap detalhado para o seguinte tema: "${prompt}"
+
+Formato exato esperado:
 
 {
-  "titulo": "string com o título do roadmap",
-  "descricao": "string com uma descrição geral do roadmap",
+  "titulo": "Título do roadmap",
+  "descricao": "Descrição geral do roadmap",
   "passos": [
     {
-      "titulo": "string com o título do passo",
-      "descricao": "string com a descrição detalhada do passo",
+      "titulo": "Título do passo 1",
+      "descricao": "Descrição do passo 1",
+      "concluido": false
+    },
+    {
+      "titulo": "Título do passo 2",
+      "descricao": "Descrição do passo 2",
       "concluido": false
     }
   ]
-}`
+}
+
+Não inclua nenhuma explicação fora desse JSON.
+`
           }
         ]
       },
