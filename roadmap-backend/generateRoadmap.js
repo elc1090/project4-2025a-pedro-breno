@@ -15,7 +15,7 @@ async function generateRoadmap(prompt) {
             content: `
 Você é uma IA que retorna apenas JSON válido. Não explique, não use markdown, apenas retorne um objeto JSON.
 
-Crie um roadmap detalhado para o seguinte tema: "${prompt}"
+Crie um roadmap detalhado em **português brasileiro** para o seguinte tema: "${prompt}"
 
 Formato exato esperado:
 
