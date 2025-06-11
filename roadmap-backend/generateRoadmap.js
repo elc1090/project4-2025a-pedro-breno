@@ -36,7 +36,7 @@ Formato exato esperado:
   ]
 }
 
-Não inclua nenhuma explicação fora desse JSON.
+Não inclua nenhuma explicação fora desse JSON, não inclua subpassos ou níveis adicionais, não alter o formato.
 `
           }
         ]
