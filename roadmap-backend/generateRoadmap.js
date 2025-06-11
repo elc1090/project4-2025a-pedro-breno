@@ -12,7 +12,20 @@ async function generateRoadmap(prompt) {
         messages: [
           {
             role: "user",
-            content: `Crie um roadmap detalhado para: ${prompt}`
+            content: `Por favor, crie um roadmap detalhado para: "${prompt}".
+Retorne a resposta no formato JSON conforme o modelo abaixo, sem texto extra, apenas o JSON:
+
+{
+  "titulo": "string com o título do roadmap",
+  "descricao": "string com uma descrição geral do roadmap",
+  "passos": [
+    {
+      "titulo": "string com o título do passo",
+      "descricao": "string com a descrição detalhada do passo",
+      "concluido": false
+    }
+  ]
+}`
           }
         ]
       },
@@ -20,7 +33,7 @@ async function generateRoadmap(prompt) {
         headers: {
           "Authorization": `Bearer ${OPENROUTER_API_KEY}`,
           "Content-Type": "application/json",
-          "HTTP-Referer": "http://localhost:3000" // pode ser seu frontend/backend
+          "HTTP-Referer": "https://project4-2025a-pedro-breno.onrender.com"
         }
       }
     );
