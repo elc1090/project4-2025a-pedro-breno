@@ -50,7 +50,16 @@ Não inclua nenhuma explicação fora desse JSON.
       }
     );
 
-    return response.data.choices[0].message.content;
+    const content = response.data.choices[0].message.content;
+
+    const parsed = JSON.parse(content);
+
+    const roadmap = typeof parsed.roadmap === 'string'
+      ? JSON.parse(parsed.roadmap)
+      : parsed;
+
+    return roadmap;
+
   } catch (error) {
     console.error('Erro ao gerar roadmap:', error.response?.data || error.message);
     throw error;
