@@ -5,6 +5,7 @@ const querystring = require('querystring');
 
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
+const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:3000";
 
 router.get('/sign-in/social', (req, res) => {
   const { provider, callbackURL } = req.query;
@@ -36,7 +37,8 @@ router.get('/callback/google', async (req, res) => {
   }
 
   try {
-    const redirectUri = `${req.protocol}://${req.get('host')}/auth/callback/google`;
+    const redirectUri = `${req.protocol}://${req.get('host')}/api/auth/callback/google`;
+
     const tokenResponse = await axios.post(
       'https://oauth2.googleapis.com/token',
       querystring.stringify({
@@ -49,7 +51,7 @@ router.get('/callback/google', async (req, res) => {
       { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }
     );
 
-    const { id_token, access_token } = tokenResponse.data;
+    const { access_token } = tokenResponse.data;
 
     const userInfoResponse = await axios.get(
       'https://www.googleapis.com/oauth2/v3/userinfo',
@@ -60,7 +62,7 @@ router.get('/callback/google', async (req, res) => {
 
     console.log('Usuário autenticado via Google:', user);
 
-    res.redirect('/roadmaps');
+    res.redirect(`${FRONTEND_URL}/roadmaps`);
   } catch (error) {
     console.error('Erro no callback do Google:', error.response?.data || error.message);
     res.status(500).send('Erro ao autenticar com o Google');
