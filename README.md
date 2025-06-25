@@ -21,11 +21,12 @@ Desenvolvemos uma aplicação web de criação e gerenciamento de **roadmaps de 
 
 ### Funcionalidades:
 
-- Login de usuários.
+- Login de usuários, incluindo autenticação via Google.
 - Criação, edição e exclusão de roadmaps.
 - Visualização de todos os roadmaps públicos.
 - Campo de pesquisa para buscar roadmaps pelo título.
 - Filtro para visualizar apenas os roadmaps do usuário logado.
+- Geração automática de roadmaps utilizando inteligência artificial (IA).
 
 ## Desenvolvimento:
 
